@@ -1,0 +1,4 @@
+algoritmo,cenario,tamanho,tempo_segundos,comparacoes,movimentacoes
+Merge Sort,Aleatório,1004894,11.862222100000054,18707675,40108396
+Merge Sort,Ordenado,1004894,9.794299499999852,9939733,40108396
+Merge Sort,Reverso,1004894,10.196095499999956,10114465,40108396
