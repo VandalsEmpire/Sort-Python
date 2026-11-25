@@ -1,7 +1,6 @@
 # Sort-Python
 
-Comparação de Merge Sort, Insertion Sort e Selection Sort com registros de crimes,
-ordenados pelo número do registro policial (`DR_NO`). Cada função ordena a lista
+Comparação de Merge Sort, Insertion Sort, Selection Sort e Quick Sort com registros de crimes, ordenados pelo número do registro policial (`DR_NO`). Cada função ordena a lista
 recebida **no próprio lugar** e retorna um objeto `Metricas` com os contadores.
 
 ## Database
@@ -23,7 +22,7 @@ python3 src/main.py
 ```
 
 Por padrão, o benchmark usa uma amostra de até **1.000 registros**, com semente 42.
-Os três algoritmos recebem cópias da mesma amostra, nos cenários aleatório,
+Os quatro algoritmos recebem cópias da mesma amostra, nos cenários aleatório,
 ordenado e reverso. A seleção da amostra e a preparação dos cenários ficam fora
 do tempo medido. O CSV de entrada inteiro ainda é carregado na memória.
 
@@ -39,7 +38,7 @@ no pior caso; no dataset de mais de 1 milhão de registros, a execução complet
 pode demorar muito. Selection realiza `n * (n - 1) / 2` comparações em qualquer
 ordem de entrada.
 
-A execução padrão substitui `data/metricas.csv` com nove resultados (três
+A execução padrão substitui `data/metricas.csv` com doze resultados (quatro
 algoritmos × três cenários). Os resultados e gráficos já versionados são do
 benchmark anterior, somente com Merge Sort. Para gerar novos gráficos:
 
@@ -59,15 +58,46 @@ padrão do Python.
   registros com a mesma chave (estável).
 - **Selection** (`src/selection.py`): procura o menor elemento da parte restante
   e troca com o elemento da posição atual. Essa versão não é estável.
+- **Quick Sort** (`src/quick.py`): utiliza o conceito de divisão e conquista
+  (*Divide and Conquer*). Escolhe um pivô pela mediana de três,
+  considerando o primeiro, o elemento central e o último elemento do intervalo.
+  Em seguida, realiza o particionamento em três regiões: elementos menores,
+  iguais e maiores que o pivô. O processo é repetido nos intervalos que ainda
+  precisam ser ordenados, até que toda a lista esteja organizada.
 
 O arquivo vazio `src/insetrion.py` foi substituído por `src/insertion.py`, com
 a grafia correta.
+
+### Estratégia de escolha do pivô — Quick Sort
+
+A implementação utiliza a estratégia **Mediana de Três (Median of Three)**.
+São analisados três elementos do intervalo atual:
+
+- Primeiro elemento;
+- Elemento central;
+- Último elemento.
+
+O valor intermediário entre os três é escolhido como pivô.
+
+Com isso busca evitar partições muito desequilibradas, principalmente
+em entradas já ordenadas ou em ordem reversa, nas quais a escolha fixa do
+primeiro ou último elemento poderia prejudicar o desempenho.
+
+O particionamento em três regiões também permite tratar os elementos iguais
+ao pivô separadamente, evitando que eles precisem ser processados novamente.
+
+A implementação é iterativa e utiliza uma pilha de intervalos para controlar
+as partes que ainda precisam ser ordenadas, evitando depender da profundidade
+de recursão do Python.
+
 
 | Algoritmo | Melhor caso | Caso médio | Pior caso |
 | --- | --- | --- | --- |
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) |
 | Insertion Sort | O(n) | O(n²) | O(n²) |
 | Selection Sort | O(n²) | O(n²) | O(n²) |
+| Quick Sort | O(n log n) | O(n log n) |  O(n²) |
+
 
 ## Contagem das métricas
 
@@ -80,6 +110,10 @@ a grafia correta.
   troca conta duas escritas; não há troca quando o menor já está na posição.
   Atribuições a variáveis locais não entram na contagem. No Merge, a cópia
   inicial para o buffer continua fora do contador, como na implementação original.
+- **Quick Sort:** cada comparação entre valores durante a escolha do pivô
+  e o particionamento é contabilizada. Cada troca entre duas posições
+  diferentes da lista representa duas movimentações. Trocas de um
+  elemento consigo mesmo não são contabilizadas.
 
 ## Testes
 
