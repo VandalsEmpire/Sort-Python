@@ -8,6 +8,7 @@ from crime import carregar_crimes
 from insertion import insertion_sort
 from merge import merge_sort
 from selection import selection_sort
+from quick import quick_sort
 
 
 def salvar_metricas(lista_resultados, caminho_out="data/metricas.csv"):
@@ -28,6 +29,14 @@ def executar_benchmark(nome_algoritmo, cenario, funcao_sort, dados):
     metricas = funcao_sort(copia_dados)
     fim = time.perf_counter()
     duracao = fim - inicio
+    # Verifica se a lista realmente ficou ordenada.
+    
+    if any(
+    copia_dados[i] > copia_dados[i + 1]
+    for i in range(len(copia_dados) - 1)
+    ):
+        raise ValueError(f"Erro: {nome_algoritmo} gerou uma lista desordenada")
+
     print(
         f"[{nome_algoritmo} | {cenario}] Tempo: {duracao:.4f}s | "
         f"Comp: {metricas.comparacoes} | Mov: {metricas.movimentacoes}"
@@ -69,6 +78,7 @@ def main():
             ("Merge Sort", merge_sort),
             ("Insertion Sort", insertion_sort),
             ("Selection Sort", selection_sort),
+            ("Quick Sort", quick_sort),
         ]
 
         resultados = []
