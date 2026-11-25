@@ -1,5 +1,11 @@
+__pycache__/
+*.py[cod]
+
+# Dataset completo: baixado localmente, não versionado.
 /export.csv
 /data/export.csv
 /data/crime_data.csv
-__pycache__/
-*.py[cod]
+/data/*.part
+
+# Saídas descartáveis de testes rápidos.
+/data/metricas_teste.csv
