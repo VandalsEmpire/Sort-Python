@@ -104,6 +104,29 @@ São criados em `graficos/` três arquivos PNG: tempo médio com barras de
 desvio-padrão, comparações e movimentações. O script usa somente linhas com
 status `medido`.
 
+Para gerar a figura usada no artigo, em escala logarítmica e separada por
+cenário, execute:
+
+```bash
+python3 scripts/gerar_grafico_tempo.py
+```
+
+## Artigo e apresentação
+
+O artigo final está em `artigo/`. O repositório mantém tanto o PDF quanto as
+fontes LaTeX e a figura usada no texto, para permitir conferência e recompilação.
+
+Para recompilar o artigo:
+
+```bash
+cd artigo
+pdflatex main.tex
+pdflatex main.tex
+```
+
+O PDF final da apresentação deve ser salvo em `slides/apresentacao.pdf` antes
+da entrega. Arquivos auxiliares gerados pelo LaTeX não são versionados.
+
 ## Convenção das métricas
 
 - **Comparações:** apenas comparações entre chaves; testes de índice e de laço
@@ -128,7 +151,8 @@ cenários e o formato do CSV de resultados.
 ```text
 .
 ├── data/       amostra reduzida e saídas locais do benchmark
-├── graficos/   gráficos gerados localmente
+├── artigo/     fontes LaTeX, figura e PDF do artigo
+├── slides/     PDF final da apresentação
 ├── scripts/    download e geração de gráficos
 ├── src/        implementações e programa de benchmark
 └── tests/      testes automatizados

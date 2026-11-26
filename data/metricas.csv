@@ -1,0 +1,37 @@
+algoritmo,cenario,tamanho,repeticoes,tempo_medio_segundos,tempo_desvio_padrao_segundos,comparacoes,movimentacoes,status,observacao
+Merge Sort,Aleatório,10000,5,0.152693,0.002502,120396,267232,medido,
+Quick Sort,Aleatório,10000,5,0.168364,0.009244,228277,234632,medido,
+Insertion Sort,Aleatório,10000,5,18.784622,1.253646,25107057,25107065,medido,
+Selection Sort,Aleatório,10000,5,26.027759,0.226308,49995000,19980,medido,
+Merge Sort,Aleatório,100000,5,1.944215,0.005681,1536336,3337856,medido,
+Quick Sort,Aleatório,100000,5,2.053912,0.006407,2867106,3034882,medido,
+Insertion Sort,Aleatório,100000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Selection Sort,Aleatório,100000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Merge Sort,Aleatório,1000000,5,37.055794,2.819573,18673465,39902848,medido,
+Quick Sort,Aleatório,1000000,5,40.909196,3.829095,34127758,35509952,medido,
+Insertion Sort,Aleatório,1000000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Selection Sort,Aleatório,1000000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Merge Sort,Ordenado,10000,5,0.117302,0.002478,64608,267232,medido,
+Quick Sort,Ordenado,10000,5,0.700070,0.008547,1129833,1088864,medido,
+Insertion Sort,Ordenado,10000,5,0.010061,0.000533,9999,9999,medido,
+Selection Sort,Ordenado,10000,5,24.772758,0.410491,49995000,0,medido,
+Merge Sort,Ordenado,100000,5,1.473061,0.010912,815024,3337856,medido,
+Quick Sort,Ordenado,100000,5,37.251308,12.871917,34247248,33839404,medido,
+Insertion Sort,Ordenado,100000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Selection Sort,Ordenado,100000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Merge Sort,Ordenado,1000000,5,32.856000,2.913875,9884992,39902848,medido,
+Quick Sort,Ordenado,1000000,5,771.234651,70.408577,1058668552,1054611248,medido,
+Insertion Sort,Ordenado,1000000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Selection Sort,Ordenado,1000000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Merge Sort,Reverso,10000,5,0.120620,0.002175,69008,267232,medido,
+Quick Sort,Reverso,10000,5,0.490494,0.001721,828748,782856,medido,
+Insertion Sort,Reverso,10000,5,35.747193,0.639332,49995000,50004999,medido,
+Selection Sort,Reverso,10000,5,22.898518,0.081678,49995000,10000,medido,
+Merge Sort,Reverso,100000,5,2.617466,0.668734,853904,3337856,medido,
+Quick Sort,Reverso,100000,5,26.543369,2.156796,24612475,24154004,medido,
+Insertion Sort,Reverso,100000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Selection Sort,Reverso,100000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Merge Sort,Reverso,1000000,5,18.712902,0.108989,10066432,39902848,medido,
+Quick Sort,Reverso,1000000,5,521.748054,11.043940,754146232,749584436,medido,
+Insertion Sort,Reverso,1000000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."
+Selection Sort,Reverso,1000000,5,,,,,nao_executado,"n > limite quadrático configurado (10,000); execução omitida por inviabilidade."

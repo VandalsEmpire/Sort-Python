@@ -9,3 +9,21 @@ __pycache__/
 
 # Saídas descartáveis de testes rápidos.
 /data/metricas_teste.csv
+
+# Arquivos auxiliares criados ao compilar o artigo e os slides.
+/artigo/*.aux
+/artigo/*.log
+/artigo/*.out
+/artigo/*.toc
+/artigo/*.nav
+/artigo/*.snm
+/artigo/missfont.log
+/slides/*.aux
+/slides/*.log
+/slides/*.out
+/slides/*.toc
+/slides/*.nav
+/slides/*.snm
+
+# Gráficos auxiliares podem ser regenerados; o gráfico usado no artigo fica em artigo/.
+/graficos/
