@@ -168,7 +168,9 @@ x86\_64, com processador Intel Core i5-3337U de 1,80 GHz (dois núcleos físicos
 e quatro \textit{threads}), 7,5 GiB de memória RAM, Fedora 45 e Python 3.15.0.
 A máquina possuía 4,5 GiB de memória disponível no início da coleta; havia
 também 7,5 GiB de \textit{swap}, dos quais 1,8 GiB estavam em uso. Todas as
-medições deste artigo foram coletadas nessa configuração.
+medições principais, usadas nas tabelas e no gráfico deste artigo, foram
+coletadas nessa configuração. Uma execução complementar em outra máquina é
+apresentada separadamente nos resultados e não é combinada a essa coleta.
 
 \section{Resultados}
 
@@ -245,5 +247,43 @@ Disponível em: \url{https://data.lacity.org/d/2nrs-mtv8}. Acesso em:
 26 nov. 2026.
 
 \end{thebibliography}
+
+\section*{Material suplementar: execução em segunda máquina}
+
+Como verificação adicional, foi executado o mesmo programa em uma máquina com
+processador AMD Ryzen 5 4600H, 8 GB de memória RAM, Windows 11 e Python 3.15.
+Nessa rodada, porém, foi utilizado o dataset inteiro, com $n=1\,004\,894$
+registros, e não o tamanho padronizado de $n=1\,000\,000$ da coleta principal.
+O tamanho complementar é 0,4894\% maior; além disso, o hardware e o sistema
+operacional são diferentes. Portanto, os tempos da Tabela~\ref{tab:segunda-maquina}
+não foram incorporados às tabelas, ao gráfico ou às comparações quantitativas
+da coleta principal.
+
+\begin{table}[H]
+\centering
+\caption{Execução complementar no dataset inteiro ($n=1\,004\,894$), em
+AMD Ryzen 5 4600H com Windows 11.}
+\label{tab:segunda-maquina}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrr}
+\toprule
+Cenário & Merge Sort (s) & Quick Sort (s) & Razão Quick/Merge \\
+\midrule
+Aleatório & 10,552697 $\pm$ 0,278149 & 10,403327 $\pm$ 0,084500 & 0,99$\times$ \\
+Ordenado  & 7,452429 $\pm$ 0,141826 & 318,058088 $\pm$ 3,314682 & 42,68$\times$ \\
+Reverso   & 7,848928 $\pm$ 0,092286 & 225,528455 $\pm$ 2,881443 & 28,74$\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Mesmo sem permitir uma comparação temporal direta com a primeira máquina,
+essa execução reproduziu qualitativamente o comportamento observado: no
+cenário aleatório, os dois algoritmos tiveram tempos próximos; nos cenários
+ordenado e reverso, o Quick Sort degradou acentuadamente. No cenário ordenado,
+ele realizou 1.066.421.341 comparações, contra 9.939.733 do Merge Sort; no
+reverso, foram 759.657.274 contra 10.114.465. Assim, a execução complementar
+corrobora a sensibilidade da implementação do Quick Sort ao padrão de entrada,
+sem substituir nem alterar os resultados padronizados da coleta principal.
 
 \end{document}
